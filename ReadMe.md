@@ -1,0 +1,2 @@
+# TIGR Examples
+Here you'll find some usage examples of the [tigr](https://bitbucket.org/rmitton/tigr/src) graphics library. I compiled them on a Windows computer using the [Dev-Cpp](https://sourceforge.net/projects/orwelldevcpp/) IDE and the project files for the IDE are included.
