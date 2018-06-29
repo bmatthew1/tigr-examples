@@ -1,0 +1,31 @@
+# Project: TIGR-Demo
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = demo.o tigr/tigr.o
+LINKOBJ  = demo.o tigr/tigr.o
+LIBS     = -static-libgcc -ld3d9 -mwindows
+INCS     = -I"C:/Users/Matthew/SkyDrive/Git/tigr-examples/TIGR-Demo/tigr"
+CXXINCS  = -I"C:/Users/Matthew/SkyDrive/Git/tigr-examples/TIGR-Demo/tigr"
+BIN      = TIGR-Demo.exe
+CXXFLAGS = $(CXXINCS) -Os
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+demo.o: demo.cpp
+	$(CPP) -c demo.cpp -o demo.o $(CXXFLAGS)
+
+tigr/tigr.o: tigr/tigr.c
+	$(CPP) -c tigr/tigr.c -o tigr/tigr.o $(CXXFLAGS)

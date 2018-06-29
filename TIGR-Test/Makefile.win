@@ -1,0 +1,31 @@
+# Project: TIGR-Test
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = tigr.hello.o tigr/tigr.o
+LINKOBJ  = tigr.hello.o tigr/tigr.o
+LIBS     = -L"C:/tools/msys64/mingw64/lib" -static-libgcc -ld3d9 -mwindows
+INCS     = -I"C:/tools/msys64/mingw64/include" -I"C:/Users/Matthew/SkyDrive/Libraries/TIGR-Test/tigr"
+CXXINCS  = -I"C:/tools/msys64/opt/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++" -I"C:/Users/Matthew/SkyDrive/Libraries/TIGR-Test/tigr"
+BIN      = TIGR-Test.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+tigr.hello.o: tigr.hello.c
+	$(CC) -c tigr.hello.c -o tigr.hello.o $(CFLAGS)
+
+tigr/tigr.o: tigr/tigr.c
+	$(CC) -c tigr/tigr.c -o tigr/tigr.o $(CFLAGS)
